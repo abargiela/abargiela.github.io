@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 18 Jan 2016 20:07:40 -0200</pubDate>
-    <lastBuildDate>Mon, 18 Jan 2016 20:07:40 -0200</lastBuildDate>
+    <pubDate>Mon, 18 Jan 2016 20:23:08 -0200</pubDate>
+    <lastBuildDate>Mon, 18 Jan 2016 20:23:08 -0200</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -41,57 +41,67 @@
       <item>
         <title>find and update simple and nasted  entry on mongoDB</title>
         <description>&lt;h3 id=&quot;connect-on-your-mongodb-then-connect-in-your-dabatase&quot;&gt;Connect on your mongoDB, then connect in your dabatase.&lt;/h3&gt;
-&lt;p&gt;“mymongo”:PRIMARY&amp;gt; show dbs;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+&quot;mymongo&quot;:PRIMARY&amp;gt; show dbs;
 admin         0.203GB
 foo_db        0.078GB
-test          (empty)&lt;/p&gt;
+test          (empty)
+&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;use foo_db;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+use foo_db;
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;display-your-collections&quot;&gt;Display your collections&lt;/h3&gt;
-&lt;p&gt;“mymongo”:PRIMARY&amp;gt; show collections;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+&quot;mymongo&quot;:PRIMARY&amp;gt; show collections;
 settings
 system.indexes
-users&lt;/p&gt;
+users
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;in-my-case-i-want-to-search-a-user-named-user1&quot;&gt;In my case I want to search a user named user1&lt;/h3&gt;
-&lt;p&gt;db.foo.find({“username”:”user1”} )                                                                                                    &lt;br /&gt;
-{ “_id” : ObjectId(“55d09bfd9f9c7e617300001b”), “username” : “user1”}&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+db.foo.find({&quot;username&quot;:&quot;user1&quot;} )                                                                                                      
+{ &quot;_id&quot; : ObjectId(&quot;55d09bfd9f9c7e617300001b&quot;), &quot;username&quot; : &quot;user1&quot;} 
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;now-i-want-to-change-the-username-user1-to-updateduser1&quot;&gt;Now I want to change the username user1 to updatedUser1&lt;/h3&gt;
 
-&lt;p&gt;db.foo.update({ “username” : “user1”},
+&lt;p&gt;```
+db.foo.update({ “username” : “user1”},
     { $set:
       { “username” : “updatedUser1”}
     })&lt;/p&gt;
 
+&lt;p&gt;```&lt;/p&gt;
+
 &lt;h3 id=&quot;for-nasted-entries-you-will-first-search-normally-for-the-user-you-want&quot;&gt;For nasted entries you will first search normally for the user you want:&lt;/h3&gt;
 
-&lt;p&gt;db.foo.find({“username”:”nasted_user1”} )&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+db.foo.find({&quot;username&quot;:&quot;nasted_user1&quot;} )  
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;the-return-will-be-something-like-below-here-you-can-see-that-inside-address-you-have-zipcode&quot;&gt;The return will be something like below, here you can see that inside address you have zipcode.&lt;/h3&gt;
-&lt;p&gt;{
-  “username” : “nasted_user1”,
-  “addresses” : [
-    {
-      “zipcode” : “01156040”
-    }
-  ],
-}&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;username&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;nasted_user1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;addresses&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;zipcode&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;01156040&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;to-access-the-entry-above-and-change-you-need-to-use--like-the-example-below-with-the-user-nasteduser1-where-is-changed-his-zicode&quot;&gt;To access the entry above and change you need to use . like the example below with the user nasted_user1 where is changed his zicode.&lt;/h3&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
 db.foo.update({ &quot;username&quot; : &quot;nasted_user1&quot;},
-    { $set:
-      { &quot;addresses.zipcode&quot;: &quot;12341234&quot;}
-    })
+  { $set:
+    { &quot;addresses.zipcode&quot;: &quot;12341234&quot;}
+  })
 &lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
-
 </description>
         <pubDate>Mon, 18 Jan 2016 13:45:29 -0200</pubDate>
         <link>http://yourdomain.com/mongodb/2016/01/18/update-mongo-entries.html</link>
