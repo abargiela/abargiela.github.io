@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Your awesome title</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <title>A. Bargiela&#39;s Blog</title>
+    <description>Linux, beer and rock n roll :)
 </description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 18 Jan 2016 14:16:26 -0200</pubDate>
-    <lastBuildDate>Mon, 18 Jan 2016 14:16:26 -0200</lastBuildDate>
+    <pubDate>Mon, 18 Jan 2016 20:05:33 -0200</pubDate>
+    <lastBuildDate>Mon, 18 Jan 2016 20:05:33 -0200</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -35,6 +35,70 @@
         <category>jekyll</category>
         
         <category>update</category>
+        
+      </item>
+    
+      <item>
+        <title>find and update simple and nasted  entry on mongoDB</title>
+        <description>&lt;h3 id=&quot;connect-on-your-mongodb-then-connect-in-your-dabatase&quot;&gt;Connect on your mongoDB, then connect in your dabatase.&lt;/h3&gt;
+&lt;p&gt;“mymongo”:PRIMARY&amp;gt; show dbs;
+admin         0.203GB
+foo_db        0.078GB
+test          (empty)&lt;/p&gt;
+
+&lt;p&gt;use foo_db;&lt;/p&gt;
+
+&lt;h3 id=&quot;display-your-collections&quot;&gt;Display your collections&lt;/h3&gt;
+&lt;p&gt;“mymongo”:PRIMARY&amp;gt; show collections;
+settings
+system.indexes
+users&lt;/p&gt;
+
+&lt;h3 id=&quot;in-my-case-i-want-to-search-a-user-named-user1&quot;&gt;In my case I want to search a user named user1&lt;/h3&gt;
+&lt;p&gt;db.foo.find({“username”:”user1”} )                                                                                                    &lt;br /&gt;
+{ “_id” : ObjectId(“55d09bfd9f9c7e617300001b”), “username” : “user1”}&lt;/p&gt;
+
+&lt;h3 id=&quot;now-i-want-to-change-the-username-user1-to-updateduser1&quot;&gt;Now I want to change the username user1 to updatedUser1&lt;/h3&gt;
+
+&lt;p&gt;db.foo.update({ “username” : “user1”},
+    { $set:
+      { “username” : “updatedUser1”}
+    })&lt;/p&gt;
+
+&lt;h3 id=&quot;for-nasted-entries-you-will-first-search-normally-for-the-user-you-want&quot;&gt;For nasted entries you will first search normally for the user you want:&lt;/h3&gt;
+
+&lt;p&gt;db.foo.find({“username”:”nasted_user1”} )&lt;/p&gt;
+
+&lt;h3 id=&quot;the-return-will-be-something-like-below-here-you-can-see-that-inside-address-you-have-zipcode&quot;&gt;The return will be something like below, here you can see that inside address you have zipcode.&lt;/h3&gt;
+&lt;p&gt;{
+  “username” : “nasted_user1”,
+  “addresses” : [
+    {
+      “zipcode” : “01156040”
+    }
+  ],
+}&lt;/p&gt;
+
+&lt;h3 id=&quot;to-access-the-entry-above-and-change-you-need-to-use--like-the-example-below-with-the-user-nasteduser1-where-is-changed-his-zicode&quot;&gt;To access the entry above and change you need to use . like the example below with the user nasted_user1 where is changed his zicode.&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+db.foo.update({ &quot;username&quot; : &quot;nasted_user1&quot;},
+    { $set:
+      { &quot;addresses.zipcode&quot;: &quot;12341234&quot;}
+    })
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 18 Jan 2016 13:45:29 -0200</pubDate>
+        <link>http://yourdomain.com/mongodb/2016/01/18/update-mongo-entries.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/mongodb/2016/01/18/update-mongo-entries.html</guid>
+        
+        
+        <category>mongoDB</category>
         
       </item>
     
@@ -114,16 +178,6 @@
         <pubDate>Fri, 15 Feb 2013 10:34:00 -0200</pubDate>
         <link>http://yourdomain.com/2013/02/15/apt-preferencesd.html</link>
         <guid isPermaLink="true">http://yourdomain.com/2013/02/15/apt-preferencesd.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Exemplo de .screenrc</title>
-        <description>&lt;br /&gt;Abaixo estou postando meu .screenrc, não temos nada de mais, porém caso eu venha a precisar ou alguém precise, espero que ajude, abs.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;deflogin on&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;autodetach on&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;defscrollback 5000&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;&lt;br /&gt;&lt;/span&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;bind ^k&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;bind ^\&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;bind \\ quit&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;bind K kill&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;bind I login on&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;bind O login off&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;bind } history&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;&lt;br /&gt;&lt;/span&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;termcapinfo vt100 dl=5\E[M&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;hardstatus on&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;hardstatus alwayslastline &quot;%{rk}%H %{gk}%c %{yk}%M%d %{wk}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{wk}%?%+Lw%?&quot;&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;termcapinfo xterm &#39;is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l&#39;&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;defnonblock 5&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;&lt;br /&gt;&lt;/span&gt;&lt;span style=&quot;font-family: Arial, Helvetica, sans-serif; font-size: x-small;&quot;&gt;O screen ficará assim:&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;font-family: Courier New, Courier, monospace; font-size: x-small;&quot;&gt;&lt;br /&gt;&lt;/span&gt;&lt;br /&gt;&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;&lt;a href=&quot;http://1.bp.blogspot.com/-OIpcrlcTW9Q/URvi1nZB8BI/AAAAAAAAEBA/Wbe6fpt_bt0/s1600/screen.jpg&quot; imageanchor=&quot;1&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;http://1.bp.blogspot.com/-OIpcrlcTW9Q/URvi1nZB8BI/AAAAAAAAEBA/Wbe6fpt_bt0/s1600/screen.jpg&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;</description>
-        <pubDate>Wed, 13 Feb 2013 17:01:00 -0200</pubDate>
-        <link>http://yourdomain.com/2013/02/13/exemplo-de-screenrc.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/2013/02/13/exemplo-de-screenrc.html</guid>
         
         
       </item>
