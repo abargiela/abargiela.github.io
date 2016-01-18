@@ -6,8 +6,8 @@
 </description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 18 Jan 2016 20:23:08 -0200</pubDate>
-    <lastBuildDate>Mon, 18 Jan 2016 20:23:08 -0200</lastBuildDate>
+    <pubDate>Mon, 18 Jan 2016 20:28:47 -0200</pubDate>
+    <lastBuildDate>Mon, 18 Jan 2016 20:28:47 -0200</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -40,17 +40,21 @@
     
       <item>
         <title>find and update simple and nasted  entry on mongoDB</title>
-        <description>&lt;h3 id=&quot;connect-on-your-mongodb-then-connect-in-your-dabatase&quot;&gt;Connect on your mongoDB, then connect in your dabatase.&lt;/h3&gt;
+        <description>&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+function test() {
+  console.log(&quot;notice the blank line before this function?&quot;);
+}
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;connect-on-your-mongodb-then-connect-in-your-dabatase&quot;&gt;Connect on your mongoDB, then connect in your dabatase.&lt;/h3&gt;
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
 &quot;mymongo&quot;:PRIMARY&amp;gt; show dbs;
 admin         0.203GB
 foo_db        0.078GB
 test          (empty)
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+&lt;/code&gt;
 use foo_db;
-&lt;/code&gt;&lt;/p&gt;
+```&lt;/p&gt;
 
 &lt;h3 id=&quot;display-your-collections&quot;&gt;Display your collections&lt;/h3&gt;
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;

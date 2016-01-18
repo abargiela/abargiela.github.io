@@ -5,14 +5,18 @@ date:   2016-01-18 13:45:29 -0200
 categories: mongoDB 
 ---
 
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
+
 ### Connect on your mongoDB, then connect in your dabatase.
 ```
 "mymongo":PRIMARY> show dbs;
 admin         0.203GB
 foo_db        0.078GB
 test          (empty)
-```
-
 ```
 use foo_db;
 ```
