@@ -1,0 +1,12 @@
+---
+layout: post
+title: calculaPotencia java
+date: '2007-03-16T00:12:00.002-03:00'
+author: Alexandre Bargiela
+tags: 
+modified_time: '2010-07-18T21:39:12.022-03:00'
+blogger_id: tag:blogger.com,1999:blog-7490778459153845376.post-4045352096934293755
+blogger_orig_url: http://abargiela.blogspot.com/2007/03/calcexpo.html
+---
+
+<div style="color: #444444;"><i><b><span style="font-family: Courier New;">Época de Facul tb. Olddddd</span></b></i></div><br />import javax.swing.JOptionPane;<br />public class calculaPotencia {<br /><br />public static void main(String args[]){<br /><br />&nbsp;&nbsp;&nbsp; //Declaração das variáveis<br />&nbsp;&nbsp;&nbsp; int iVal1, iPot,iTotal;<br />&nbsp;&nbsp;&nbsp; String sVal1, sValPot;<br /><br />&nbsp;&nbsp;&nbsp; // Armazenando e convertendo os valores<br />&nbsp;&nbsp;&nbsp; sVal1 = JOptionPane.showInputDialog(null, "Adicione um valor:",&nbsp;&nbsp;&nbsp;&nbsp; "Potência",JOptionPane.INFORMATION_MESSAGE);<br />&nbsp;&nbsp;&nbsp; iVal1 = Integer.parseInt(sVal1);<br /><br />&nbsp;&nbsp;&nbsp; sValPot = JOptionPane.showInputDialog(null, "Adicione a potência","Potencia",JOptionPane.INFORMATION_MESSAGE);<br />&nbsp;&nbsp;&nbsp; iPot =  Integer.parseInt(sValPot); <br /><br />&nbsp;&nbsp;&nbsp; //Passando parametros para o método<br />&nbsp;&nbsp;&nbsp; iTotal = calcPot(iVal1, iPot);  <br /><br />&nbsp;&nbsp;&nbsp; //Imprimindo o resultado<br />&nbsp;&nbsp;&nbsp; JOptionPane.showMessageDialog(null, "O número: " + iVal1 + "\nElevado a: " + iPot + "\nResulta : " + iTotal);<br /><br />&nbsp;&nbsp;&nbsp; System.exit(0);      <br />}<br /><br />&nbsp;&nbsp;&nbsp; //Método que calcula a Potência<br />&nbsp;&nbsp;&nbsp; public static int calcPot(int iV, int iP){<br /><br /><br />&nbsp;&nbsp;&nbsp; int iT, iVal;<br />&nbsp;&nbsp;&nbsp; iVal = iV;<br />&nbsp;&nbsp;&nbsp; iT = 1;<br /><br />&nbsp;&nbsp;&nbsp; while (iP &gt;=  1){<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; iT = iT * iVal;          <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; iP--;<br />&nbsp;&nbsp;&nbsp; }<br /><br /><br />&nbsp;&nbsp;&nbsp; return iT;<br />&nbsp;&nbsp; }<br />}

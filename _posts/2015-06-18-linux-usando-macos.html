@@ -1,0 +1,12 @@
+---
+layout: post
+title: Linux usando macOS+boot2docker
+date: '2015-06-18T11:22:00.004-03:00'
+author: Alexandre Bargiela
+tags: 
+modified_time: '2015-06-18T11:55:48.289-03:00'
+blogger_id: tag:blogger.com,1999:blog-7490778459153845376.post-660470881795156072
+blogger_orig_url: http://abargiela.blogspot.com/2015/06/linux-usando-macos.html
+---
+
+<span style="font-family: Courier New, Courier, monospace;">Tenho usado faz algum tempo mac no trabalho e fazendo scripts já encontrei dificuldades com sed, a sintaxe difere o que nos leva a ter que instalar o gsed. Então utilizando docker eu criei um script para facilitar minha vida, espero que ajude mais alguém:</span><br /><span style="font-family: Courier New, Courier, monospace;"><br /></span><span style="font-family: Courier New, Courier, monospace;"># Script</span><br /><span style="font-family: Courier New, Courier, monospace;"><a href="https://github.com/abargiela/scripts/blob/master/docker-ubuntu-start.sh">https://github.com/abargiela/scripts/blob/master/docker-ubuntu-start.sh</a></span><br /><span style="font-family: Courier New, Courier, monospace;"><br /></span><span style="font-family: Courier New, Courier, monospace;">Eu o adicionei a meu profile fazendo um alias:&nbsp;</span><br /><span style="font-family: Courier New, Courier, monospace;">alias linux="/opt/docker-ubuntu-start.sh"</span><br /><span style="font-family: Courier New, Courier, monospace;"><br /></span><span style="font-family: Courier New, Courier, monospace;">Basicamente ele baixa o ubuntu 14.10, mas você pode trocar para o latest enfim, ele monta o /opt/docker-volume-ubuntu da imagem do boot2docker para que você tenha persistência dos dados, portanto caso necessite recuperar algo ele sempre estará la independente de você matar o container e subir novamente. Para ver a persistência:</span><br /><span style="font-family: Courier New, Courier, monospace;">boot2docker ssh</span><br /><span style="font-family: Courier New, Courier, monospace;">E acesse: cd /opt/docker-volume-ubuntu todo conteúdo estará lá.</span><br /><span style="font-family: Courier New, Courier, monospace;"><br /></span><span style="font-family: Courier New, Courier, monospace;">Importante ressaltar que a persistência nesse meu exemplo vale apenas para o que for criado dentro do /opt do container, caso você crie fora o dado não persistirá.</span><br /><span style="font-family: Courier New, Courier, monospace;"><br /></span>

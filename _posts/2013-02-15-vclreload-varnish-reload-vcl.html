@@ -1,0 +1,12 @@
+---
+layout: post
+title: vclreload varnish reload VCL
+date: '2013-02-15T18:23:00.001-02:00'
+author: Alexandre Bargiela
+tags: 
+modified_time: '2013-02-15T18:27:55.919-02:00'
+blogger_id: tag:blogger.com,1999:blog-7490778459153845376.post-1402938479703599138
+blogger_orig_url: http://abargiela.blogspot.com/2013/02/vclreload-varnish-reload-vcl.html
+---
+
+<br />Olá,<br />Fiz alguns ajustes para suprir algumas necessidades que tenho em meu ambiente e o script que basicamente lê a VCL nova e verifica a sintaxe, se houver algum erro, logicamente ela não sobe.<br /><br />As mudanças que fiz foram:<br /><br /><i># Ele pega automaticamente o arquivo vcl a ser compilado, não havendo a necessidade de intervenção manual, logo, se você possui um ambiente com varnishs separados e vcls com nomes diferentes, você pode colocar o script na automação sem se preocupar com ajustes finos :)</i><br /><span style="font-family: Courier New, Courier, monospace;">FILE=$(grep "\-f" /etc/default/varnish |head -1| awk '{print $2}')</span><br /><br /><i># Aqui ele basicamente pega o valor do varnishadm para poder executar os comandos para carregar a nova vcl.</i><br /><span style="font-family: Courier New, Courier, monospace;">HOSTPORT=$(grep "\-T" /etc/default/varnish | awk '{print $3}')</span><br /><br />Segue o script originalmente criado por Kristian Lyngstol e modificado para minha necessidade.<br /><br /><b><span style="color: red;"><a href="https://github.com/abargiela/scripts/blob/master/vclreload.sh">https://github.com/abargiela/scripts/blob/master/vclreload.sh</a></span></b><br /><br />Essas modificações foram extremamente úteis para mim, espero que para você também seja :)<br /><br />

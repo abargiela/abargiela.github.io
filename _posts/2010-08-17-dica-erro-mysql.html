@@ -1,0 +1,12 @@
+---
+layout: post
+title: 'Dica: Erro mysql'
+date: '2010-08-17T08:34:00.005-03:00'
+author: Alexandre Bargiela
+tags: 
+modified_time: '2010-08-17T11:29:22.754-03:00'
+blogger_id: tag:blogger.com,1999:blog-7490778459153845376.post-8076737466267564263
+blogger_orig_url: http://abargiela.blogspot.com/2010/08/dica-erro-mysql.html
+---
+
+Hoje realizando o backup de um ambiente obtive o seguinte erro: <br /><br /><div style="color: red; font-family: &quot;Courier New&quot;,Courier,monospace;">mysqldump: Couldn't execute 'SELECT /*!40001 SQL_NO_CACHE */ * FROM `EVENTS`': Cannot proceed because system tables used by Event Scheduler were found damaged at server start (1577)</div><br />Pesquisando encontrei a solução do meu problema, executei um:<br /><br /><div style="background-color: black; color: lime; font-family: &quot;Courier New&quot;,Courier,monospace;"><b>mysql_upgrade -u root -p xxx</b></div>depois<br /><div style="background-color: black; color: lime; font-family: &quot;Courier New&quot;,Courier,monospace;"><b>/etc/init.d/mysql stop</b></div><div style="background-color: black; color: lime; font-family: &quot;Courier New&quot;,Courier,monospace;"><b>/etc/init.d/mysql start</b>&nbsp;</div>e meu problema foi resolvido, fica a dica, abs.<br />:D<br /><br /><br /><div style="color: #666666;"><i>Referências: </i></div><div style="color: #666666;"><a href="http://wiki.navicat.com/wiki/index.php/1577_-_Cannot_proceed_because_system_tables_used_by_Event_Scheduler_where_found_damaged_at_server_start"><i>http://wiki.navicat.com/wiki/index.php/1577_-_Cannot_proceed_because_system_tables_used_by_Event_Scheduler_where_found_damaged_at_server_start</i></a></div><i><span style="color: #666666;">man mysql_upgrade</span></i>
