@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>find and update simple and nasted  entry on mongoDB</title>
-  <meta name="description" content="Connect on your mongoDB, then connect in your dabatase."mymongo":PRIMARY&gt; show dbs;admin         0.203GBfoo_db        0.078GBtest          (empty)">
+  <title>Find and update simple and nasted  entry on mongoDB</title>
+  <meta name="description" content="">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://yourdomain.com/mongodb/2016/01/18/update-mongo-entries.html">
@@ -57,12 +57,31 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">find and update simple and nasted  entry on mongoDB</h1>
+    <h1 class="post-title" itemprop="name headline">Find and update simple and nasted  entry on mongoDB</h1>
     <p class="post-meta"><time datetime="2016-01-18T13:45:29-02:00" itemprop="datePublished">Jan 18, 2016</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <h3 id="connect-on-your-mongodb-then-connect-in-your-dabatase">Connect on your mongoDB, then connect in your dabatase.</h3>
+    
+<ul id="markdown-toc">
+  <li><a href="#simple-update" id="markdown-toc-simple-update">Simple update</a>    <ul>
+      <li><a href="#connect-on-your-mongodb-then-connect-in-your-dabatase" id="markdown-toc-connect-on-your-mongodb-then-connect-in-your-dabatase">Connect on your mongoDB, then connect in your dabatase.</a></li>
+      <li><a href="#display-your-collections" id="markdown-toc-display-your-collections">Display your collections</a></li>
+      <li><a href="#in-my-case-i-want-to-search-a-user-named-user1" id="markdown-toc-in-my-case-i-want-to-search-a-user-named-user1">In my case I want to search a user named user1</a></li>
+      <li><a href="#now-i-want-to-change-the-username-user1-to-updateduser1" id="markdown-toc-now-i-want-to-change-the-username-user1-to-updateduser1">Now I want to change the username user1 to updatedUser1</a></li>
+    </ul>
+  </li>
+  <li><a href="#nasted-update" id="markdown-toc-nasted-update">Nasted update</a>    <ul>
+      <li><a href="#for-nasted-entries-you-will-first-search-normally-for-the-user-you-want" id="markdown-toc-for-nasted-entries-you-will-first-search-normally-for-the-user-you-want">For nasted entries you will first search normally for the user you want:</a></li>
+      <li><a href="#the-return-will-be-something-like-below-here-you-can-see-that-inside-address-you-have-zipcode" id="markdown-toc-the-return-will-be-something-like-below-here-you-can-see-that-inside-address-you-have-zipcode">The return will be something like below, here you can see that inside address you have zipcode.</a></li>
+      <li><a href="#to-access-the-entry-above-and-change-you-need-to-use--like-the-example-below-with-the-user-nasteduser1-where-is-changed-his-zicode" id="markdown-toc-to-access-the-entry-above-and-change-you-need-to-use--like-the-example-below-with-the-user-nasteduser1-where-is-changed-his-zicode">To access the entry above and change you need to use . like the example below with the user nasted_user1 where is changed his zicode.</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="simple-update">Simple update</h2>
+
+<h4 id="connect-on-your-mongodb-then-connect-in-your-dabatase">Connect on your mongoDB, then connect in your dabatase.</h4>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="s2">"mymongo"</span><span class="err">:</span><span class="nx">PRIMARY</span><span class="o">&gt;</span> <span class="nx">show</span> <span class="nx">dbs</span><span class="p">;</span>
 <span class="nx">admin</span>         <span class="mf">0.203</span><span class="nx">GB</span>
@@ -71,30 +90,32 @@
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">use</span> <span class="nx">foo_db</span><span class="p">;</span></code></pre></figure>
 
-<h3 id="display-your-collections">Display your collections</h3>
+<h4 id="display-your-collections">Display your collections</h4>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="s2">"mymongo"</span><span class="err">:</span><span class="nx">PRIMARY</span><span class="o">&gt;</span> <span class="nx">show</span> <span class="nx">collections</span><span class="p">;</span>
 <span class="nx">settings</span>
 <span class="nx">system</span><span class="p">.</span><span class="nx">indexes</span>
 <span class="nx">users</span></code></pre></figure>
 
-<h3 id="in-my-case-i-want-to-search-a-user-named-user1">In my case I want to search a user named user1</h3>
+<h4 id="in-my-case-i-want-to-search-a-user-named-user1">In my case I want to search a user named user1</h4>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"user1"</span><span class="p">}</span> <span class="p">)</span>                                                                                                      
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"user1"</span><span class="p">}</span> <span class="p">)</span>
 <span class="p">{</span> <span class="s2">"_id"</span> <span class="err">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">"55d09bfd9f9c7e617300001b"</span><span class="p">),</span> <span class="s2">"username"</span> <span class="err">:</span> <span class="s2">"user1"</span><span class="p">}</span> </code></pre></figure>
 
-<h3 id="now-i-want-to-change-the-username-user1-to-updateduser1">Now I want to change the username user1 to updatedUser1</h3>
+<h4 id="now-i-want-to-change-the-username-user1-to-updateduser1">Now I want to change the username user1 to updatedUser1</h4>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="s2">"username"</span> <span class="p">:</span> <span class="s2">"user1"</span><span class="p">},</span>
     <span class="p">{</span> <span class="na">$set</span><span class="p">:</span>
       <span class="p">{</span> <span class="s2">"username"</span> <span class="p">:</span> <span class="s2">"updatedUser1"</span><span class="p">}</span>
     <span class="p">})</span></code></pre></figure>
 
-<h3 id="for-nasted-entries-you-will-first-search-normally-for-the-user-you-want">For nasted entries you will first search normally for the user you want:</h3>
+<h2 id="nasted-update">Nasted update</h2>
+
+<h4 id="for-nasted-entries-you-will-first-search-normally-for-the-user-you-want">For nasted entries you will first search normally for the user you want:</h4>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"nasted_user1"</span><span class="p">}</span> <span class="p">)</span>  </code></pre></figure>
 
-<h3 id="the-return-will-be-something-like-below-here-you-can-see-that-inside-address-you-have-zipcode">The return will be something like below, here you can see that inside address you have zipcode.</h3>
+<h4 id="the-return-will-be-something-like-below-here-you-can-see-that-inside-address-you-have-zipcode">The return will be something like below, here you can see that inside address you have zipcode.</h4>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
   <span class="s2">"username"</span> <span class="err">:</span> <span class="s2">"nasted_user1"</span><span class="p">,</span>
@@ -105,7 +126,7 @@
   <span class="p">],</span>
 <span class="p">}</span></code></pre></figure>
 
-<h3 id="to-access-the-entry-above-and-change-you-need-to-use--like-the-example-below-with-the-user-nasteduser1-where-is-changed-his-zicode">To access the entry above and change you need to use . like the example below with the user nasted_user1 where is changed his zicode.</h3>
+<h4 id="to-access-the-entry-above-and-change-you-need-to-use--like-the-example-below-with-the-user-nasteduser1-where-is-changed-his-zicode">To access the entry above and change you need to use . like the example below with the user nasted_user1 where is changed his zicode.</h4>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span> <span class="s2">"username"</span> <span class="p">:</span> <span class="s2">"nasted_user1"</span><span class="p">},</span>
   <span class="p">{</span> <span class="na">$set</span><span class="p">:</span>
