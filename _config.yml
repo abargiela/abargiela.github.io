@@ -9,7 +9,7 @@
 title: A. Bargiela's Blog
 email: alexandre@bargiela.com.br
 description: > # this means to ignore newlines until "baseurl:"
-  Linux, beer and rock n roll :)
+  :)
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # the base hostname & protocol for your site
 twitter_username: abargiela
