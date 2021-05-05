@@ -1,0 +1,2 @@
+I"ê<p>Add all your kubeconfigs in a disarable directory, in my case is: <code class="language-plaintext highlighter-rouge">~/Documents/kubeconfigs/</code> and add to your <code class="language-plaintext highlighter-rouge">~/.bash_profile</code>: <code class="language-plaintext highlighter-rouge">export KUBECONFIG=$(/usr/bin/realpath ~/Documents/kubeconfigs/* | tr '\n' ':'| sed 's,\:$,,g')</code></p>
+:ET
